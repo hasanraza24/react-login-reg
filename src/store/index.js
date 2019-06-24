@@ -1,7 +1,5 @@
-import { createStore, applyMiddleware } from 'redux';
-import { middleware } from "../middleware/index";
+import { createStore } from 'redux';
 import { rootReducer } from "../reducers/index";
-const Middleware = applyMiddleware(...middleware);
 
 /**
  * Global store for storing global states.
