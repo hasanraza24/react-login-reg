@@ -13,7 +13,13 @@ export default (
 
     <Router>
             <Route exact path="*" component={Header} />
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" render={() => (
+            token ? (
+                <Redirect to="/inner-page"/>
+            ) : (
+                <Home/>
+            )
+            )} />
             <Route exact path="/inner-page" render={() => (
             !token ? (
                 <Redirect to="/"/>

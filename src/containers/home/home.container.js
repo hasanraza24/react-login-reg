@@ -17,16 +17,6 @@ class Home extends Component {
     }
   }
 
-  componentDidMount = () =>{
-    const token = localStorage.getItem("token");
-    if(token){
-      this.props.history.push({
-        pathname: '/inner-page',
-    });
-    }
-    
-  }
-
   registerUser = (e) =>{
     e.preventDefault();
     var email = document.getElementById("remail").value;
@@ -44,9 +34,9 @@ class Home extends Component {
       password: password
   }).then((data) => {
       if (data.success) {
-        this.props.history.push({
-          pathname: '/',
-      });
+        this.setState({
+            loginFormOpen: 'login'
+        })
           // document.getElementById("myForm").reset();        
       } else {
         this.showError.current.showSnackbar(data.message);
@@ -112,9 +102,12 @@ class Home extends Component {
       email: email
     }).then((data) => {
         this.showError.current.showSnackbar(data.message);
+        this.setState({
+            loginFormOpen: 'login'
+        });
     })
     .catch((error) => {
-        this.showError.current.showSnackbar('Something went wrong!');
+       alert('Something Went wrong!');
     });
   }
 
