@@ -59,15 +59,15 @@ class Home extends Component {
       if (data && data.success) {
               localStorage.setItem("token", data.data.token);
               localStorage.setItem("username", data.data.user._id);
-              this.props.history.push({
-                pathname: '/inner-page',
-            });
+              console.log("before push");
+              this.props.history.push('./inner-page');
           // document.getElementById("myForm").reset();          
       } else {
         this.showError.current.showSnackbar(data.message);
       }
   })
   .catch((error) => {
+      console.log('Error', error);
     alert('Something Went Wrong!');
   });
   }

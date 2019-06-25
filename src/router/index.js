@@ -13,20 +13,22 @@ export default (
 
     <Router>
             <Route exact path="*" component={Header} />
-            <Route exact path="/" render={() => (
+            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" render={(props) => (
             token ? (
                 <Redirect to="/inner-page"/>
             ) : (
-                <Home/>
+                <Home {...props}/>
             )
-            )} />
-            <Route exact path="/inner-page" render={() => (
+            )} /> */}
+            {/* <Route exact path="/inner-page" render={(props) => (
             !token ? (
                 <Redirect to="/"/>
             ) : (
-                <InnerPage/>
+                <InnerPage {...props} />
             )
-            )}/>
+            )}/> */}
+            <Route exact path="/inner-page" component={InnerPage} />
             <Route exact path="/reset-password" component={ResetPwd} />
     </Router>
 

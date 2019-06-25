@@ -6,6 +6,7 @@ class Header extends Component {
     logOutuser = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("username");
+        console.log("in header");
         this.props.history.push("/");
     };
 

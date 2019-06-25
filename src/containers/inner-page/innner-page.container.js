@@ -7,7 +7,8 @@ class InnerPage extends Component {
         this.state = {}
     }
 
-    render() { 
+    render() {
+        console.log("you are in inner page"); 
         return (
             <h3>You are now logged In!</h3>
         )
